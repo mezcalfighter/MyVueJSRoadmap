@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Renderizado</title>
+</head>
+<body>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <div id="app"></div>
+    <script>
+        Vue.createApp({
+            data(){
+                return{
+                    attr:"src", 
+                    img:"https://scontent.fgdl1-3.fna.fbcdn.net/v/t39.30808-6/272895710_2391411901011314_2249864732966905409_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=8bfeb9&_nc_eui2=AeERpGHNXebsSUky21QlPyiz6iGieARR12_qIaJ4BFHXb7UYXEomFCfEFfVflQgDgADQ_t9f8xj0sYq8T9JtyFFi&_nc_ohc=sToi1jwQqHcAX_kIlRF&_nc_ht=scontent.fgdl1-3.fna&oh=00_AfC02ksDf7Ruhmc6yq4C0jd8Hf1D1RRC3yWCvU1dCOB9mw&oe=64666CF8"
+                }
+            },
+            template:`<img v-bind:[attr]="img">`
+        }).mount("#app");
+    </script>
+</body>
+</html>

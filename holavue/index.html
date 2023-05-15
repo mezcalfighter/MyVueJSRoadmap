@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hola VueJS</title>
+</head>
+<body>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <div id="app"></div>
+    <script>
+        const vm = Vue.createApp({
+            // #app es el identificador de a partir de donde comienza a crear la app de vue
+            // aqui va un json donde se va a definir las copnfiguraciones de la app
+            data(){
+                return {
+                    text:"Hola Mundo desde VueJS"
+                    //text: <p>Hola desde Vue en HTML</p>
+                }
+            },
+            // view once:
+            // template:`<div v-once v-text="text"></div>`
+            // insert HTML:
+            // template:`<div v-html="text"></div>`
+            template:`<div v-text="text"></div>`
+        }).mount("#app");
+        console.log(vm);
+    </script>
+</body>
+</html>
