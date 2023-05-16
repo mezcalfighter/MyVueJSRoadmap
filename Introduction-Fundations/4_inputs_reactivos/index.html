@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inputs reactivos</title>
+</head>
+<body>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <div id="inputs"></div>
+    <script>
+        const {createApp} = Vue;
+        createApp({
+            data(){
+                return{
+                    text:"Hola Vue"
+                }
+            },
+            methods:{
+                input(e){
+                    this.text = e.target.value;
+                }
+            },
+            template:
+            // Atributos -> : v-bind
+            // Eventos -> @  v-on
+            // <input type="text" @input="input" :value="text"/>
+            `
+                <p>{{text}}</p>
+                <input v-model="text"/>
+            `
+        }).mount("#inputs")
+    </script>
+</body>
+</html>

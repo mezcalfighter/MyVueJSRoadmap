@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Watchers</title>
+</head>
+<body>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <div id="watchers"></div>
+    <script>
+        const {createApp} = Vue;
+        const vm = createApp({
+            data(){
+                return{
+                    text:"La puerta esta abierta",
+                    open:false
+                };
+            },
+            watch:{
+                // value recibe el nuevo valor de text
+                // oldValue recibe el antiguo valor de text
+                text(value,oldValue){
+                    console.log("Watcher activo!", value, oldValue, this.text);
+                },
+                open(newStatus){
+                    if(newStatus){
+                        this.open = true;
+                        this.text = "La puerta esta abierta";
+                    }else{
+                        this.open = false;
+                        this.text = "La puerta esta cerrada";
+                    }
+                }
+            },
+            computed:{
+                label(){
+                    return this.open ? "Cerrar" : "Abrir"
+                }
+            },
+            template:
+            `
+            <div>{{text}}</div>
+            <button @click="open = !open">{{label}}</button>
+            `
+        }).mount("#watchers");
+    </script>
+</body>
+</html>

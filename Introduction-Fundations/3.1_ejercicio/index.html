@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio Aumentar y decrementar </title>
+</head>
+<body>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <div id="contador"></div>
+    <script>
+        const {createApp} = Vue;
+        createApp({
+            data(){
+                return{
+                    counter:0
+                }
+            },
+            methods:{
+                add(e){
+                    e.preventDefault();
+                    this.counter++;
+                },
+                minus(e){
+                    e.preventDefault();
+                    this.counter--;
+                },
+                reset(e){
+                    e.preventDefault();
+                    this.counter = 0;
+                }
+            },
+            template:`
+                <form><label>Counter: {{counter}}</label></form>
+                <br>
+                <form v-on:submit="add"><button>+</button></form>
+                <br>
+                <form v-on:submit="minus"><button>-</button></form>
+                <br>
+                <form v-on:submit="reset"><button>Reset</button></form>
+            `
+        }).mount("#contador")
+    </script>
+</body>
+</html>
